@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# OneVisionOS Security Hardening Hook
+# This script runs inside the chroot during the ISO build.
+
+set -e
+
+echo "[Hook] Enabling UFW and setting security policy..."
+
+# 1. Firewall Configuration
+# This assumes ufw is in the package list
+if command -v ufw >/dev/null 2>&1; then
+    ufw --force reset
+    ufw default deny incoming
+    ufw default allow outgoing
+    
+    # Allow MGMT Server (Node.js)
+    ufw allow 3000/tcp comment 'MGMT Server'
+    
+    # Allow Self-Healing P2P (libp2p usually uses 4001, plus some room)
+    ufw allow 4001/tcp comment 'Self-Healing P2P'
+    ufw allow 4001/udp comment 'Self-Healing P2P'
+    
+    # Enable UFW (it will start on boot)
+    systemctl enable ufw
+else
+    echo "Warning: ufw not found, skipping firewall hardening."
+fi
+
+# 2. Restrict sudo for student user
+# Note: 'student' user is usually created via live-config, but we pre-seed the policy.
+mkdir -p /etc/sudoers.d
+chmod 750 /etc/sudoers.d
+
+# 3. Disable root login
+passwd -l root

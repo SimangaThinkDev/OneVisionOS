@@ -1,0 +1,7 @@
+# OneVisionOS Student Sudo Policy
+# Students can only run specific safe commands as sudo if needed, 
+# or are completely restricted.
+
+# For now, allow student to only restart the self-healing service
+student ALL=(ALL) /usr/bin/systemctl restart onevision-self-healing
+student ALL=(ALL) /usr/bin/systemctl status onevision-self-healing

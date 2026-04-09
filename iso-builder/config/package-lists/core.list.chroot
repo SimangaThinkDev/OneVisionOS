@@ -1,0 +1,25 @@
+# Core System Toolset
+network-manager
+curl
+wget
+sudo
+iproute2
+kmod
+udev
+ufw
+
+# Dependencies for our services
+nodejs
+npm
+golang-go
+
+# Drivers & Compatibility
+firmware-linux
+firmware-linux-nonfree
+firmware-iwlwifi
+firmware-brcm80211
+firmware-realtek
+firmware-libertas
+firmware-atheros
+broadcom-sta-dkms
+xserver-xorg-input-synaptics

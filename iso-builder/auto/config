@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -e
+
+lb config noauto \
+    --distribution bookworm \
+    --binary-images iso-hybrid \
+    --architectures amd64 \
+    --linux-flavours amd64 \
+    --archive-areas "main contrib non-free non-free-firmware" \
+    --mirror-binary http://deb.debian.org/debian/ \
+    --mirror-bootstrap http://deb.debian.org/debian/ \
+    --bootloader grub-pc \
+    "${@}"
