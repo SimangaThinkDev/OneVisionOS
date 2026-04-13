@@ -25,6 +25,14 @@ router.post('/profiles', (req, res) => {
     const sql = `INSERT INTO students (name, grade, email, mac_address) VALUES (?, ?, ?, ?)`;
     db.run(sql, [name, grade, email, mac_address], function(err) {
         if (err) return res.status(500).json({ message: err.message });
+        
+        // Broadcast alert
+        req.app.locals.broadcast({
+            type: 'alert',
+            level: 'success',
+            message: `New student profile created: ${name} (Grade ${grade})`
+        });
+
         res.status(201).json({ id: this.lastID, message: 'Profile created.' });
     });
 });
@@ -34,7 +42,23 @@ router.delete('/profiles/:id', (req, res) => {
     db.run("DELETE FROM students WHERE id = ?", [req.params.id], function(err) {
         if (err) return res.status(500).json({ message: err.message });
         if (this.changes === 0) return res.status(404).json({ message: 'Profile not found.' });
+
+        // Broadcast alert
+        req.app.locals.broadcast({
+            type: 'alert',
+            level: 'info',
+            message: `Student profile deleted (ID: ${req.params.id})`
+        });
+
         res.json({ message: 'Profile deleted.' });
+    });
+});
+
+// Get all managed nodes
+router.get('/nodes', (req, res) => {
+    db.all("SELECT * FROM nodes ORDER BY last_seen DESC", [], (err, rows) => {
+        if (err) return res.status(500).json({ message: err.message });
+        res.json(rows);
     });
 });
 

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OneVisionOS | Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div id="login-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg-color); z-index: 2000; display: flex; align-items: center; justify-content: center;">
+        <div class="card" style="width: 100%; max-width: 400px; padding: 2.5rem;">
+            <div class="logo" style="margin-bottom: 2rem;">OneVisionOS Login</div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="login-username" required placeholder="admin">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="login-password" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 1rem;">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    <aside>
+        <div class="logo">OneVisionOS</div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active" id="nav-dashboard"><i data-lucide="layout-dashboard"></i> Dashboard</a></li>
+                <li><a href="#" id="nav-profiles"><i data-lucide="users"></i> Profiles</a></li>
+                <li><a href="#" id="nav-nodes"><i data-lucide="server"></i> Client Nodes</a></li>
+                <li><a href="#" id="nav-security"><i data-lucide="shield-check"></i> Security</a></li>
+                <li><a href="#" id="nav-settings"><i data-lucide="settings"></i> Settings</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <header>
+            <h1 id="page-title">Dashboard</h1>
+            <div class="header-actions">
+                <button class="btn btn-primary" id="btn-add-profile">
+                    <i data-lucide="plus"></i> Add Profile
+                </button>
+            </div>
+        </header>
+
+        <section id="dashboard-view">
+            <div class="stats-grid">
+                <div class="card">
+                    <h3>Total Profiles</h3>
+                    <div class="value" id="stat-profiles">-</div>
+                </div>
+                <div class="card">
+                    <h3>Active Nodes</h3>
+                    <div class="value" id="stat-nodes">0</div>
+                </div>
+                <div class="card">
+                    <h3>Security Health</h3>
+                    <div class="value" style="color: var(--accent-color);">100%</div>
+                </div>
+                <div class="card">
+                    <h3>Uptime</h3>
+                    <div class="value">99.9%</div>
+                </div>
+            </div>
+
+            <div class="overview-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2.5rem;">
+                <div class="card">
+                    <h3>Grade Distribution</h3>
+                    <div id="grade-chart" style="height: 200px; display: flex; align-items: flex-end; gap: 1rem; padding-top: 1rem;">
+                        <!-- Bars will be injected here -->
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>System Messages</h3>
+                    <div id="system-log" style="height: 200px; overflow-y: auto; font-size: 0.875rem; color: var(--text-muted);">
+                        <div style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);">[SYSTEM] Management server started.</div>
+                        <div style="padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);">[SYSTEM] Database encryption verified.</div>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Recent Activity</h2>
+            <div class="table-container" style="margin-top: 1.5rem;">
+                <table id="recent-activity-table">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Event</th>
+                            <th>Target</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data will be injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="nodes-view" style="display: none;">
+            <div class="table-container">
+                <table id="nodes-table">
+                    <thead>
+                        <tr>
+                            <th>Hostname</th>
+                            <th>IP Address</th>
+                            <th>Status</th>
+                            <th>Last Seen</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="5" style="text-align: center; color: var(--text-muted);">No managed nodes connected yet.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="profiles-view" style="display: none;">
+
+            <div class="table-container">
+                <table id="profiles-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Grade</th>
+                            <th>Email</th>
+                            <th>MAC Address</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data will be injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for Adding/Editing Profile -->
+    <div class="modal" id="profile-modal">
+        <div class="modal-content">
+            <h2 id="modal-title">New Student Profile</h2>
+            <form id="profile-form" style="margin-top: 1.5rem;">
+                <input type="hidden" id="profile-id">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="profile-name" required placeholder="e.g. John Doe">
+                </div>
+                <div class="form-group">
+                    <label>Grade Level</label>
+                    <input type="number" id="profile-grade" required placeholder="e.g. 10">
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="profile-email" placeholder="e.g. john@school.edu">
+                </div>
+                <div class="form-group">
+                    <label>MAC Address (Optional)</label>
+                    <input type="text" id="profile-mac" placeholder="e.g. 00:1A:2B:3C:4D:5E">
+                </div>
+                <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1rem;">
+                    <button type="button" class="btn" id="btn-cancel" style="background: transparent; color: var(--text-muted);">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Profile</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="alerts-panel" id="alerts-container"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>

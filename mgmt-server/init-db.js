@@ -41,6 +41,20 @@ db.serialize(() => {
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP
     )`);
 
+    // 4. Initialize Managed Nodes Schema
+    console.log('[DB] Creating nodes table...');
+    db.run(`CREATE TABLE IF NOT EXISTS nodes (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        hw_uuid TEXT UNIQUE NOT NULL,
+        hostname TEXT NOT NULL,
+        ip_address TEXT,
+        mac_address TEXT,
+        department TEXT,
+        status TEXT DEFAULT 'pending',
+        last_seen DATETIME,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    )`);
+
     console.log('[DB] Database initialization complete.');
 });
 

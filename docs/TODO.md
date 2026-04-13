@@ -51,39 +51,39 @@
 - [x] **Testing & Validation**: Verify API security with integration tests.
 
 ## Phase 7: Management Server - Frontend Dashboard
-- [ ] Scaffold a modern, responsive web UI for administrators
-- [ ] Create Profile Management view (List, Add, Edit, Delete)
-- [ ] Implement real-time system alerts using WebSockets
-- [ ] Design "Global School Overview" visualization
-- [ ] **Testing & Validation**: UI/UX manual walkthrough and component testing.
+- [x] Scaffold a modern, responsive web UI for administrators
+- [x] Create Profile Management view (List, Add, Edit, Delete)
+- [x] Implement real-time system alerts using WebSockets
+- [x] Design "Global School Overview" visualization
+- [x] **Testing & Validation**: UI/UX manual walkthrough and component testing.
 
 ## Phase 8: OS Provisioning - First-Boot Initialization
-- [ ] Create `os-config/first-boot.sh` script
-- [ ] Implement machine registration logic (Unique Hardware ID generation)
-- [ ] Configure automatic hostname assignment by school department
-- [ ] Set up automatic connection to the local `mgmt-server`
-- [ ] **Testing & Validation**: Test registration script on a fresh Debian instance.
+- [x] Create `os-config/first-boot.sh` script
+- [x] Implement machine registration logic (Unique Hardware ID generation)
+- [x] Configure automatic hostname assignment by school department
+- [x] Set up automatic connection to the local `mgmt-server`
+- [x] **Testing & Validation**: Test registration script on a fresh Debian instance.
 
 ## Phase 9: OS Provisioning - Profile Synchronization
-- [ ] Implement `profile-sync` service logic
-- [ ] Securely fetch profile templates from `mgmt-server` via HTTPS
-- [ ] Automate creation of student Linux accounts based on server data
-- [ ] Implement profile deletion/lockdown from the server
-- [ ] **Testing & Validation**: Verify end-to-end sync in a test environment.
+- [x] Implement `profile-sync` service logic
+- [x] Securely fetch profile templates from `mgmt-server` via HTTPS
+- [x] Automate creation of student Linux accounts based on server data
+- [x] Implement profile deletion/lockdown from the server
+- [x] **Testing & Validation**: Verify end-to-end sync in a test environment.
 
 ## Phase 10: Self-Healing - Go Daemon Foundation
 - [x] Scaffold Go project with core package structure (`cmd/`, `internal/`, `pkg/`)
 - [x] Implement basic "Watchdog" service loop
 - [x] Set up logging and signal handling (Graceful shutdown)
-- [ ] Implement internal health check API for the dashboard
-- [ ] **Testing & Validation**: Run `go test ./...` in `self-healing` to verify core logic.
+- [x] Implement internal health check API for the dashboard
+- [x] **Testing & Validation**: Run `go test ./...` in `self-healing` to verify core logic.
 
 ## Phase 11: Self-Healing - P2P Networking (libp2p)
-- [ ] Integrate `libp2p` for node discovery on the local network
-- [ ] Implement mDNS for automatic zero-config peer discovery
-- [ ] Define P2P message protocols for health status sharing
-- [ ] Establish secure, encrypted P2P communication channels
-- [ ] **Testing & Validation**: Verify P2P discovery between two local Go nodes.
+- [x] Integrate `libp2p` for node discovery on the local network
+- [x] Implement mDNS for automatic zero-config peer discovery
+- [x] Define P2P message protocols for health status sharing
+- [x] Establish secure, encrypted P2P communication channels
+- [x] **Testing & Validation**: Verify P2P discovery between two local Go nodes.
 
 ## Phase 12: Self-Healing - File Integrity Monitoring
 - [ ] Create a "Mission-Critical File" manifest
