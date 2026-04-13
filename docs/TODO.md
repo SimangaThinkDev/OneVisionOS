@@ -93,11 +93,11 @@
 - [x] **Testing & Validation**: Manually corrupt files and verify automatic repair.
 
 ## Phase 13: Security - NIDS Signature Engine
-- [ ] Integrate a packet capturing library (e.g., `gopacket`)
-- [ ] Implement signature-based threat detection for known exploits
-- [ ] Create an updateable signature database for the campus network
-- [ ] Define alert levels and notification logic
-- [ ] **Testing & Validation**: Simulate network attacks and verify detection.
+- [x] Integrate a packet capturing library (e.g., `gopacket`)
+- [x] Implement signature-based threat detection for known exploits
+- [x] Create an updateable signature database for the campus network
+- [x] Define alert levels and notification logic
+- [x] **Testing & Validation**: Simulate network attacks and verify detection.
 
 ## Phase 14: Security - Anomaly & Behavioral Detection
 - [ ] Implement network traffic baseline monitoring
