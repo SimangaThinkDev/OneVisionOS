@@ -23,10 +23,6 @@ func main() {
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 
-	// Initialize Watchdog
-	wd := monitor.NewWatchdog(10 * time.Second)
-	wd.Start()
-
 	// Initialize P2P Node
 	p2pNode, err := p2p.NewNode(ctx)
 	if err != nil {
@@ -36,6 +32,13 @@ func main() {
 	if err := p2pNode.SetupDiscovery(); err != nil {
 		log.Printf("[P2P] Discovery setup failed: %v", err)
 	}
+
+	// Register protocols
+	p2pNode.RegisterFileSyncProtocol()
+
+	// Initialize Watchdog
+	wd := monitor.NewWatchdog(10*time.Second, p2pNode)
+	wd.Start()
 
 	// Setup Health Check API
 	go setupHealthCheckAPI(wd, p2pNode, *apiPort)

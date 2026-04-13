@@ -86,11 +86,11 @@
 - [x] **Testing & Validation**: Verify P2P discovery between two local Go nodes.
 
 ## Phase 12: Self-Healing - File Integrity Monitoring
-- [ ] Create a "Mission-Critical File" manifest
-- [ ] Implement MD5/SHA256 checksum verification module
-- [ ] Build logic to fetch clean copies of broken files from peers/server
-- [ ] Automatic restoration and service restart logic
-- [ ] **Testing & Validation**: Manually corrupt files and verify automatic repair.
+- [x] Create a "Mission-Critical File" manifest
+- [x] Implement MD5/SHA256 checksum verification module
+- [x] Build logic to fetch clean copies of broken files from peers/server
+- [x] Automatic restoration and service restart logic
+- [x] **Testing & Validation**: Manually corrupt files and verify automatic repair.
 
 ## Phase 13: Security - NIDS Signature Engine
 - [ ] Integrate a packet capturing library (e.g., `gopacket`)

@@ -6,7 +6,7 @@ import (
 )
 
 func TestWatchdogStatus(t *testing.T) {
-	w := NewWatchdog(1 * time.Second)
+	w := NewWatchdog(1*time.Second, nil)
 	if w.GetStatus() != "initialized" {
 		t.Errorf("expected initialized, got %s", w.GetStatus())
 	}
