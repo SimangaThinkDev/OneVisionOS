@@ -100,18 +100,18 @@
 - [x] **Testing & Validation**: Simulate network attacks and verify detection.
 
 ## Phase 14: Security - Anomaly & Behavioral Detection
-- [ ] Implement network traffic baseline monitoring
-- [ ] Build anomaly detection logic (High bandwidth, unusual ports)
-- [ ] Create "Suspicious Activity" detection (e.g., rapid port scanning)
-- [ ] Automated isolation/quarantine of suspicious nodes
-- [ ] **Testing & Validation**: Run traffic anomalies and verify isolation logic.
+- [x] Implement network traffic baseline monitoring
+- [x] Build anomaly detection logic (High bandwidth, unusual ports)
+- [x] Create "Suspicious Activity" detection (e.g., rapid port scanning)
+- [x] Automated isolation/quarantine of suspicious nodes
+- [x] **Testing & Validation**: Run traffic anomalies and verify isolation logic.
 
 ## Phase 15: Health Dashboard - GTK/Qt Foundation
-- [ ] Choose and initialize GTK/Qt framework (C++ or Python binding)
-- [ ] Create the main application window and navigation
-- [ ] Implement secure local IPC with the Go Self-Healing daemon
-- [ ] Design the student-facing "System Wellness" UI
-- [ ] **Testing & Validation**: Verify UI responsiveness and IPC connectivity.
+- [x] Choose and initialize GTK/Qt framework (C++ or Python binding)
+- [x] Create the main application window and navigation
+- [x] Implement secure local IPC with the Go Self-Healing daemon
+- [x] Design the student-facing "System Wellness" UI
+- [x] **Testing & Validation**: Verify UI responsiveness and IPC connectivity.
 
 ## Phase 16: Health Dashboard - Status Visualization
 - [ ] Create real-time graphs for CPU, RAM, and Disk health

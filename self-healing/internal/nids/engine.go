@@ -11,12 +11,16 @@ import (
 type Engine struct {
 	Signatures []Signature
 	Alerts     chan Alert
+	Behavioral *BehavioralEngine
 }
 
 func NewEngine() *Engine {
+	be := NewBehavioralEngine()
+	be.ResetStats()
 	return &Engine{
 		Signatures: []Signature{},
 		Alerts:     make(chan Alert, 100),
+		Behavioral: be,
 	}
 }
 
@@ -25,6 +29,8 @@ func (e *Engine) LoadSignatures(sigs []Signature) {
 }
 
 func (e *Engine) ProcessPacket(packet gopacket.Packet) {
+	e.Behavioral.AnalyzePacket(packet)
+
 	// Extract IPv4 layer
 	ipLayer := packet.Layer(layers.LayerTypeIPv4)
 	if ipLayer == nil {

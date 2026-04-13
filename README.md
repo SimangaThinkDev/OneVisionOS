@@ -9,6 +9,8 @@ at your school. The goal is to create a secure, efficient, and
 user-friendly platform that integrates with existing systems and 
 simplifies the management of student computers.
 
+![OneVision Health Dashboard](onevision_health_dashboard_mockup_1776112382927.png)
+
 **Features**
 ------------
 
