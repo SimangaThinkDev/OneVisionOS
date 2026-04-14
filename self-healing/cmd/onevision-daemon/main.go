@@ -85,19 +85,25 @@ func main() {
 
 func setupHealthCheckAPI(wd *monitor.Watchdog, p2pNode *p2p.Node, nidsEngine *nids.Engine, port string) {
 	http.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
+		sysMetrics := monitor.GetSystemMetrics()
+		secScore := monitor.CalculateSecurityScore(len(nidsEngine.Signatures), 0) // Alerts count TBD Phase 14
+
 		status := map[string]interface{}{
 			"daemon":   "active",
 			"watchdog": wd.GetStatus(),
+			"metrics":  sysMetrics,
 			"p2p": map[string]interface{}{
 				"peer_id": p2pNode.Host.ID().String(),
 				"peers":   len(p2pNode.Host.Network().Peers()),
 				"addrs":   p2pNode.Host.Addrs(),
 			},
 			"nids": map[string]interface{}{
-				"active":     true,
-				"signatures": len(nidsEngine.Signatures),
+				"active":         true,
+				"signatures":     len(nidsEngine.Signatures),
+				"security_score": secScore,
 			},
-			"time": time.Now().Format(time.RFC3339),
+			"repairs": wd.Repairs,
+			"time":    time.Now().Format(time.RFC3339),
 		}
 
 		w.Header().Set("Content-Type", "application/json")

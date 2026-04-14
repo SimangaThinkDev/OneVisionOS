@@ -5,10 +5,17 @@ import (
 	"time"
 )
 
+type RepairLog struct {
+	Path      string    `json:"path"`
+	Timestamp time.Time `json:"timestamp"`
+	Status    string    `json:"status"`
+}
+
 type Watchdog struct {
 	Interval time.Duration
 	Status   string
-	P2PNode  interface{} // Using interface{} to avoid circular dependency or just import if safe
+	P2PNode  interface{}
+	Repairs  []RepairLog
 }
 
 func NewWatchdog(interval time.Duration, p2pNode interface{}) *Watchdog {

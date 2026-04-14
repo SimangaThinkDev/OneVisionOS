@@ -62,4 +62,30 @@ QPushButton#ActionButton {
 QPushButton#ActionButton:hover {
     background-color: #2563eb;
 }
+
+QProgressBar {
+    border: none;
+    background-color: #334155;
+    height: 8px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+QProgressBar::chunk {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #3b82f6, stop:1 #60a5fa);
+    border-radius: 4px;
+}
+
+QLabel#RepairItem {
+    color: #94a3b8;
+    font-size: 12px;
+    font-family: 'JetBrains Mono', 'Consolas', monospace;
+    padding: 2px;
+}
+
+QLabel#SecurityScore {
+    color: #4ade80;
+    font-size: 48px;
+    font-weight: 800;
+}
 """

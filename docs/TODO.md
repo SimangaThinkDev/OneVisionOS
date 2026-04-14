@@ -114,11 +114,11 @@
 - [x] **Testing & Validation**: Verify UI responsiveness and IPC connectivity.
 
 ## Phase 16: Health Dashboard - Status Visualization
-- [ ] Create real-time graphs for CPU, RAM, and Disk health
-- [ ] Visualize P2P network status (Connected peers)
-- [ ] Build a "Security Score" indicator for the current session
-- [ ] Implement "History of Repairs" log view
-- [ ] **Testing & Validation**: Verify data accuracy in the dashboard views.
+- [x] Create real-time graphs for CPU, RAM, and Disk health
+- [x] Visualize P2P network status (Connected peers)
+- [x] Build a "Security Score" indicator for the current session
+- [x] Implement "History of Repairs" log view
+- [x] **Testing & Validation**: Verify data accuracy in the dashboard views.
 
 ## Phase 17: ISO Customization - UI & UX
 - [ ] Implement custom Boot Splash (Plymouth) with OneVisionOS branding

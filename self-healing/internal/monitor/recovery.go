@@ -14,14 +14,22 @@ type RecoveryNode interface {
 func (w *Watchdog) AttemptRecovery(filePath string) {
 	log.Printf("[Recovery] Attempting to recover %s...", filePath)
 
+	repair := RepairLog{
+		Path:      filePath,
+		Timestamp: time.Now(),
+		Status:    "FAILED",
+	}
+
 	if w.P2PNode == nil {
 		log.Printf("[Recovery] Error: No P2P node available for recovery")
+		w.Repairs = append(w.Repairs, repair)
 		return
 	}
 
 	rn, ok := w.P2PNode.(RecoveryNode)
 	if !ok {
 		log.Printf("[Recovery] Error: P2P node does not implement RecoveryNode interface")
+		w.Repairs = append(w.Repairs, repair)
 		return
 	}
 
@@ -31,8 +39,11 @@ func (w *Watchdog) AttemptRecovery(filePath string) {
 	err := rn.FetchFileFromAnyPeer(ctx, filePath, filePath)
 	if err != nil {
 		log.Printf("[Recovery] Failed to recover %s: %v", filePath, err)
+		w.Repairs = append(w.Repairs, repair)
 		return
 	}
 
 	log.Printf("[Recovery] Successfully restored %s from peer network", filePath)
+	repair.Status = "RESTORED"
+	w.Repairs = append(w.Repairs, repair)
 }
