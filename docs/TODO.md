@@ -121,11 +121,11 @@
 - [x] **Testing & Validation**: Verify data accuracy in the dashboard views.
 
 ## Phase 17: ISO Customization - UI & UX
-- [ ] Implement custom Boot Splash (Plymouth) with OneVisionOS branding
-- [ ] Configure the default Desktop Environment (GNOME/KDE/XFCE)
-- [ ] Curate a set of educational software packages (Pre-installed)
-- [ ] Create a "Student Welcome" guide app on first login
-- [ ] **Testing & Validation**: User acceptance test on the final UI elements.
+- [x] Implement custom Boot Splash (Plymouth) with OneVisionOS branding
+- [x] Configure the default Desktop Environment (GNOME/KDE/XFCE)
+- [x] Curate a set of educational software packages (Pre-installed)
+- [x] Create a "Student Welcome" guide app on first login
+- [x] **Testing & Validation**: User acceptance test on the final UI elements.
 
 ## Phase 18: Advanced Management - Remote Command Hub
 - [ ] Implement secure remote shell capability from MGMT to Clients

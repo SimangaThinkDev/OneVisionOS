@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=OneVision Welcome
+Comment=Welcome guide for new students
+Exec=/opt/onevision/welcome/welcome.sh
+StartupNotify=false
+Terminal=false
+Categories=Education;

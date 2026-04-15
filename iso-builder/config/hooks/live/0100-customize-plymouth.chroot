@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+# Set OneVisionOS theme as default
+plymouth-set-default-theme onevision-splash
+
+# Update initramfs to include the theme
+update-initramfs -u

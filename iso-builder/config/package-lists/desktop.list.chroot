@@ -1,0 +1,10 @@
+# Desktop Environment: XFCE
+task-xfce-desktop
+xfce4-goodies
+lightdm
+lightdm-gtk-greeter
+firefox-esr
+
+# Boot Splash
+plymouth
+plymouth-themes
