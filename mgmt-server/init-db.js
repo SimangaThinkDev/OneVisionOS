@@ -55,6 +55,31 @@ db.serialize(() => {
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP
     )`);
 
+    // 5. Telemetry (Phase 18)
+    console.log('[DB] Creating telemetry table...');
+    db.run(`CREATE TABLE IF NOT EXISTS telemetry (
+        peer_id TEXT PRIMARY KEY,
+        hostname TEXT NOT NULL,
+        timestamp TEXT,
+        cpu_percent REAL DEFAULT 0,
+        ram_percent REAL DEFAULT 0,
+        disk_percent REAL DEFAULT 0,
+        status TEXT DEFAULT 'unknown',
+        nids_signatures INTEGER DEFAULT 0
+    )`);
+
+    // 6. Bulk Actions log (Phase 18)
+    console.log('[DB] Creating bulk_actions table...');
+    db.run(`CREATE TABLE IF NOT EXISTS bulk_actions (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        command TEXT NOT NULL,
+        args TEXT,
+        department TEXT,
+        node_count INTEGER DEFAULT 0,
+        created_by TEXT,
+        created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    )`);
+
     console.log('[DB] Database initialization complete.');
 });
 

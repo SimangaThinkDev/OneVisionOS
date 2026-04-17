@@ -8,6 +8,7 @@ require('dotenv').config();
 const authRoutes = require('./routes/auth');
 const adminRoutes = require('./routes/admin');
 const clientRoutes = require('./routes/client');
+const remoteRoutes = require('./routes/remote');
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/auth', authRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/client', clientRoutes);
+app.use('/api/remote', remoteRoutes);
 
 
 // WebSocket connection

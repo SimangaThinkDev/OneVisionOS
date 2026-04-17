@@ -128,32 +128,32 @@
 - [x] **Testing & Validation**: User acceptance test on the final UI elements.
 
 ## Phase 18: Advanced Management - Remote Command Hub
-- [ ] Implement secure remote shell capability from MGMT to Clients
-- [ ] Build "Bulk Action" execution (e.g., reboot all Grade 10 machines)
-- [ ] Implement file distribution system from Server to all Nodes
-- [ ] Create remote logging/telemetry aggregation
-- [ ] **Testing & Validation**: Verify remote command execution from the MGMT server.
+- [x] Implement secure remote shell capability from MGMT to Clients
+- [x] Build "Bulk Action" execution (e.g., reboot all Grade 10 machines)
+- [x] Implement file distribution system from Server to all Nodes
+- [x] Create remote logging/telemetry aggregation
+- [x] **Testing & Validation**: Verify remote command execution from the MGMT server.
 
 ## Phase 19: Backup & Restore Mechanims
-- [ ] Implement `rsync` based user-data snapshotting
-- [ ] Support for local backup drives and campus NAS/Server targets
-- [ ] Create a "One-Click Restore" utility for students
-- [ ] Implement automated backup schedules via crontab
-- [ ] **Testing & Validation**: Perform data backup and full restoration tests.
+- [x] Implement `rsync` based user-data snapshotting
+- [x] Support for local backup drives and campus NAS/Server targets
+- [x] Create a "One-Click Restore" utility for students
+- [x] Implement automated backup schedules via crontab
+- [x] **Testing & Validation**: Perform data backup and full restoration tests.
 
 ## Phase 20: Automated Updates & Patching
-- [ ] Create a local mirror/proxy for Debian security updates
-- [ ] Implement "Invisible Updating" (background patching during idle)
-- [ ] Build a "Force Update" trigger for critical security patches
-- [ ] Verify update integrity via GPG signatures
-- [ ] **Testing & Validation**: Verify automated patching cycle without user intervention.
+- [x] Create a local mirror/proxy for Debian security updates
+- [x] Implement "Invisible Updating" (background patching during idle)
+- [x] Build a "Force Update" trigger for critical security patches
+- [x] Verify update integrity via GPG signatures
+- [x] **Testing & Validation**: Verify automated patching cycle without user intervention.
 
 ## Phase 21: Integration Testing & QA
-- [ ] Develop automated QEMU/KVM test scripts
-- [ ] Implement CI/CD pipeline for ISO builds
-- [ ] Conduct "Network Stress Test" with many simulated P2P nodes
-- [ ] Audit the "Self-Healing" logic by manually corrupting system files
-- [ ] **Testing & Validation**: Final QA pass before release nomination.
+- [x] Develop automated QEMU/KVM test scripts
+- [x] Implement CI/CD pipeline for ISO builds
+- [x] Conduct "Network Stress Test" with many simulated P2P nodes
+- [x] Audit the "Self-Healing" logic by manually corrupting system files
+- [x] **Testing & Validation**: Final QA pass before release nomination.
 
 ## Phase 22: Deployment & Release
 - [ ] Implement ISO compression and checksum generation

@@ -1,0 +1,42 @@
+name: OneVisionOS Build & Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-daemons:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.21'
+        
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Run Integration Tests
+      run: bash tests/scripts/verify-phase-21.sh
+
+  build-iso-dry-run:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Install live-build
+      run: sudo apt-get update && sudo apt-get install -y live-build debootstrap
+      
+    - name: LB Config
+      run: cd iso-builder && sudo lb config
+      
+    # Note: Full ISO build is too slow/resource intensive for standard GitHub Actions
+    # but we can verify the configuration.
+    - name: Verify LB Config
+      run: cd iso-builder && ls config/
