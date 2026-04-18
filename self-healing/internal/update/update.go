@@ -7,25 +7,27 @@ import (
 	"time"
 )
 
+var commandRunner = exec.Command
+
 // RunUpdate handles the background patching process
 func RunUpdate() error {
 	log.Println("[UPDATE] Starting background update process...")
 
 	// 1. Update package lists
-	cmd := exec.Command("apt-get", "update")
+	cmd := commandRunner("apt-get", "update")
 	if output, err := cmd.CombinedOutput(); err != nil {
 		return fmt.Errorf("apt-get update failed: %v, output: %s", err, string(output))
 	}
 
 	// 2. Perform non-interactive upgrade
 	// We use -o Dpkg::Options::="--force-confold" to keep existing configs
-	cmd = exec.Command("apt-get", "dist-upgrade", "-y", "-o", "Dpkg::Options::=\"--force-confold\"", "--ignore-hold")
+	cmd = commandRunner("apt-get", "dist-upgrade", "-y", "-o", "Dpkg::Options::=\"--force-confold\"", "--ignore-hold")
 	if output, err := cmd.CombinedOutput(); err != nil {
 		return fmt.Errorf("apt-get upgrade failed: %v, output: %s", err, string(output))
 	}
 
 	// 3. Clean up
-	exec.Command("apt-get", "autoremove", "-y").Run()
+	commandRunner("apt-get", "autoremove", "-y").Run()
 
 	log.Println("[UPDATE] Background update completed successfully.")
 	return nil
@@ -33,10 +35,10 @@ func RunUpdate() error {
 
 // CheckForUpdates returns true if there are pending updates
 func CheckForUpdates() (bool, error) {
-	cmd := exec.Command("apt-get", "update")
+	cmd := commandRunner("apt-get", "update")
 	cmd.Run()
 
-	cmd = exec.Command("apt-get", "-s", "upgrade")
+	cmd = commandRunner("apt-get", "-s", "upgrade")
 	_, err := cmd.CombinedOutput()
 	if err != nil {
 		return false, err

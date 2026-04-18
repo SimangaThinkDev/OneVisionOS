@@ -10,5 +10,7 @@ lb config noauto \
     --archive-areas "main contrib non-free non-free-firmware" \
     --mirror-binary http://deb.debian.org/debian/ \
     --mirror-bootstrap http://deb.debian.org/debian/ \
+    --linux-packages none \
+    --security false \
     --bootloader grub-pc \
     "${@}"

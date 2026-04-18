@@ -19,7 +19,7 @@
 - [x] Set up `debootstrap` configuration for minimal educational base
 - [x] Implement ISO generation script (`build-iso.sh`)
 - [x] **Testing & Validation**: Verify that `iso-builder` environment is valid and executable.
-- [ ] Verify bootable ISO in QEMU/KVM
+- [x] Verify bootable ISO in QEMU/KVM
 
 ## Phase 3: Hardware Compatibility (MacBook & HP All-in-One)
 - [x] Research specific driver requirements for legacy MacBooks (Broadcom, etc.)
@@ -156,8 +156,8 @@
 - [x] **Testing & Validation**: Final QA pass before release nomination.
 
 ## Phase 22: Deployment & Release
-- [ ] Implement ISO compression and checksum generation
-- [ ] Create a "USB Builder" utility for easy installation
-- [ ] Write administrator deployment documentation
-- [ ] Final security audit of the production image
-- [ ] **Testing & Validation**: Verify the final released image checksums and install process.
+- [x] Implement ISO compression and checksum generation
+- [x] Create a "USB Builder" utility for easy installation
+- [x] Write administrator deployment documentation
+- [x] Final security audit of the production image
+- [x] **Testing & Validation**: Verify the final released image checksums and install process.

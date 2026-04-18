@@ -4,6 +4,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+logs/
+*.log
+coverage/
 .env
 .env.local
 .env.development.local
@@ -21,9 +24,13 @@ yarn-error.log*
 # ISO Builder
 /iso-builder/*.iso
 /iso-builder/build.log
+/iso-builder/wget-log*
 /iso-builder/chroot/
 /iso-builder/binary/
+/iso-builder/cache/
+/iso-builder/local/
 /iso-builder/.build/
+/iso-builder/release/
 
 # OS Config
 /os-config/*.tmp

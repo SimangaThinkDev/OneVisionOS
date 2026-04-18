@@ -4,6 +4,7 @@
 # This script automates the live-build process for OneVisionOS.
 
 set -e
+set -o pipefail
 
 # Ensure we are in the correct directory
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"

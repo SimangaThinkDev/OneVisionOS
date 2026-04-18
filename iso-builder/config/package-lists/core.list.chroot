@@ -1,4 +1,6 @@
 # Core System Toolset
+linux-image-amd64
+linux-headers-amd64
 network-manager
 curl
 wget
