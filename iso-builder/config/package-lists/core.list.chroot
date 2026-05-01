@@ -25,3 +25,5 @@ firmware-libertas
 firmware-atheros
 broadcom-sta-dkms
 xserver-xorg-input-synaptics
+# Utilities
+memtest86+

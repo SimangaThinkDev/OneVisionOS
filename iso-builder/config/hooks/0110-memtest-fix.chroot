@@ -1,0 +1,19 @@
+#!/bin/sh
+set -e
+
+# Fix for live-build expecting memtest86+.bin/efi
+# In Debian 12 (Bookworm), memtest86+ 6.x uses architectures in filenames.
+
+# BIOS version
+if [ -f /boot/memtest86+x64.bin ]; then
+    ln -sf memtest86+x64.bin /boot/memtest86+.bin
+elif [ -f /boot/memtest86+ia32.bin ]; then
+    ln -sf memtest86+ia32.bin /boot/memtest86+.bin
+fi
+
+# UEFI version
+if [ -f /boot/memtest86+x64.efi ]; then
+    ln -sf memtest86+x64.efi /boot/memtest86+.efi
+elif [ -f /boot/memtest86+ia32.efi ]; then
+    ln -sf memtest86+ia32.efi /boot/memtest86+.efi
+fi
